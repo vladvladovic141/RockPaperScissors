@@ -6,7 +6,7 @@ let computerScore = 0;
 
 playGame();
 function playGame() {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 3; i++) {
     playRound();
   }
 }
