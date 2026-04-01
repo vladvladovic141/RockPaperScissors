@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+}
+.container {
+  height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(231, 220, 220);
+}
+.btnPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.answerBtn {
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+  width: 50px;
+  background-color: rgb(32, 32, 32);
+  border-radius: 15px;
+  cursor: default;
+  user-select: none;
+}
+.answerBtn:active {
+  position: relative;
+  top: 1px;
+  background-color: rgb(46, 46, 46);
+}
+.resultsCon {
+  color: black;
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  align-content: center;
+  text-align: center;
+}
+.resultsPlayersCon {
+  display: flex;
+  justify-content: space-between;
+}
+.resultsCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 40px 0 40px;
+}
+h2, h4{
+  margin: 5px;
+}
