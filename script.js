@@ -28,6 +28,9 @@ const resultsPlayerScore = document.createElement("h1");
 resultsPlayerScore.textContent = `${humanScore}`;
 resultsPlayerCard.append(resultsPlayerHeader, resultsPlayerScore);
 resultsPlayersCon.append(resultsPlayerCard);
+const resultsPlayerChoosed = document.createElement("h4");
+resultsPlayerChoosed.textContent = "---";
+resultsPlayerCard.append(resultsPlayerChoosed);
 // comp
 const resultsComputerCard = document.createElement("div");
 resultsComputerCard.classList.add("resultsCard");
@@ -37,7 +40,9 @@ const resultsComputerScore = document.createElement("h1");
 resultsComputerScore.textContent = `${computerScore}`;
 resultsComputerCard.append(resultsComputerHeader, resultsComputerScore);
 resultsPlayersCon.append(resultsComputerCard);
-
+const resultsComputerChoosed = document.createElement("h4");
+resultsComputerChoosed.textContent = "---";
+resultsComputerCard.append(resultsComputerChoosed);
 
 resultsCon.append(resultsHeader, resultsPlayersCon);
 
@@ -61,17 +66,16 @@ container.addEventListener("click", (e) => {
       break;
   }
 });
-
-playGame();
-function playGame() {}
+//TODO add choices display
 
 function getComputerChoice(array) {
   return array[Math.floor(Math.random() * array.length)];
 }
 function printRoundResults() {
-  console.log(
-    `Player: ${humanChoice}, Computer: ${computerChoice} | ${humanScore} : ${computerScore}`,
-  );
+  resultsPlayerScore.textContent = humanScore;
+  resultsComputerScore.textContent = computerScore;
+  resultsPlayerChoosed.textContent = humanChoice;
+  resultsComputerChoosed.textContent = computerChoice;
 }
 function playRound(choice) {
   humanChoice = choice;
