@@ -3,6 +3,7 @@ let computerChoice = "";
 let humanChoice = "";
 let humanScore = 0;
 let computerScore = 0;
+let gameUntilScore = 5;
 
 const container = document.querySelector(".container");
 const btnRock = document.querySelector("#rock");
@@ -66,7 +67,6 @@ container.addEventListener("click", (e) => {
       break;
   }
 });
-//TODO add choices display
 
 function getComputerChoice(array) {
   return array[Math.floor(Math.random() * array.length)];
@@ -76,6 +76,31 @@ function printRoundResults() {
   resultsComputerScore.textContent = computerScore;
   resultsPlayerChoosed.textContent = humanChoice;
   resultsComputerChoosed.textContent = computerChoice;
+}
+function checkForWinner() {
+  if (humanScore === gameUntilScore || computerScore === gameUntilScore) {
+    const winnerCon = document.createElement("h2");
+    winnerCon.id = "winnerCon";
+    resultsCon.append(winnerCon);
+    const btnNewGame = document.createElement("div");
+    btnNewGame.classList.add("answerBtn");
+    btnPanel.replaceChildren(btnNewGame);
+    btnNewGame.textContent = "New Game";
+    btnNewGame.addEventListener("click", () => {
+      startNewGame();
+    });
+    winnerCon.textContent = `${humanScore > computerScore ? "Player" : "Computer"} is the winner!`;
+  }
+}
+function startNewGame() {
+  const winnerCon = document.querySelector("#winnerCon");
+  winnerCon.remove();
+  const btnNewGame = document.querySelector(".answerBtn");
+  btnNewGame.replaceWith(btnRock, btnPaper, btnScissors);
+  humanScore = 0;
+  computerScore = 0;
+  resultsPlayerChoosed.textContent = "---";
+  resultsComputerChoosed.textContent = "---";
 }
 function playRound(choice) {
   humanChoice = choice;
@@ -95,4 +120,5 @@ function playRound(choice) {
     computerScore += 1;
   }
   printRoundResults();
+  checkForWinner();
 }
