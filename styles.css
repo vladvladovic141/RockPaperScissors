@@ -11,19 +11,21 @@ body {
   background-color: rgb(231, 220, 220);
 }
 .btnPanel {
+  width: 440px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding: 10px 0 0 0;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 .answerBtn {
   text-align: center;
-  margin: 20px;
   padding: 10px;
-  min-width: 50px;
   background-color: rgb(32, 32, 32);
   border-radius: 15px;
   cursor: default;
   user-select: none;
+  flex: 1;
 }
 .answerBtn:active {
   position: relative;
@@ -51,6 +53,7 @@ body {
   align-items: center;
   margin: 0 40px 0 40px;
 }
-h2, h4{
+h2,
+h4 {
   margin: 5px;
 }
